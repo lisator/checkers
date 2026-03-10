@@ -1,0 +1,166 @@
+    /* Checkers Multiplayer Game Styling */
+
+    /* Root variables for consistent theming across the application */
+:root {
+    --bg-color: #0a0a0c;
+    --board-matte: #151518;
+    --board-gloss: #2a2a2e;
+    --red-vinyl: #d00000;
+    --black-vinyl: #111111;
+    --text-silver: #a0a0a5;
+}
+
+    /* Global styles */
+* {
+    margin: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-silver);
+    font-family: 'Inter', -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+    /* Board and cell styles */
+
+table {
+    border-collapse: collapse;
+    width: min(95vmin, 95vw);
+    height: min(95vmin, 95vw);
+    table-layout: fixed;
+}
+
+td {
+    background-color: var(--board-matte);
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    padding: 0;
+    vertical-align: middle;
+}
+
+    /* Game container and piece styles */
+
+.game-container {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.turn-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.blank {
+    background-color: var(--board-gloss);
+}
+
+.red-piece, .black-piece {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s cubic-bezier(0.2, 0, 0.4, 1), box-shadow 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: auto;
+}
+
+.red-piece {
+    background: radial-gradient(circle at 35% 35%, #ff3131 0%, #7b0000 80%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), inset 0 -2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.black-piece {
+    background: radial-gradient(circle at 35% 35%, #444 0%, #000 85%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), inset 0 -2px 5px rgba(255, 255, 255, 0.1);
+}
+
+.red-piece:hover, .black-piece:hover {
+    transform: scale(1.1) translateY(-2px);
+}
+
+.selected {
+    outline: 2px solid white;
+    outline-offset: 4px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+p {
+    display: inline-block;
+    color: white;
+}
+
+span {
+    display: inline-block;
+    color: white;
+}
+
+    /* King piece styles */
+
+.king {
+    border: 3px solid #fff !important;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.2) !important;
+}
+
+.king::after {
+    content: '♔';
+    color: white;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 45px;
+}
+
+    /* Turn indicator and button styles */
+
+.Red-Turn, .Black-Turn {
+    font-weight: 200;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 20px;
+    transition: opacity 0.3s ease;
+}
+
+.button {
+    background: transparent;
+    border: 1px solid var(--text-silver);
+    color: var(--text-silver);
+    padding: 10px 30px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    align-items: center;
+}
+
+.button:hover {
+    background: var(--text-silver);
+    color: var(--bg-color);
+}
